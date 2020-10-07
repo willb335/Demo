@@ -8,7 +8,7 @@ using AutoMapper;
 
 namespace Demo.Profiles
 {
-    public class CommandsProfile
+    public class CommandsProfile : Profile
     {
         public CommandsProfile()
         {
