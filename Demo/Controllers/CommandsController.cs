@@ -34,18 +34,18 @@ namespace Demo.Controllers
             return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commandItems));
 
         }
-        [Route("{id}")]
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<CommandReadDto> GetCommandById(int id)
         {
             var commandItem = _repository.GetCommandById(id);
 
-            if (commandItem != null)
+            if (commandItem == null)
             {
-                return Ok(_mapper.Map<CommandReadDto>(commandItem));
+                return NotFound();
+
             }
 
-            return NotFound();
+            return Ok(_mapper.Map<CommandReadDto>(commandItem));
 
         }
     }
